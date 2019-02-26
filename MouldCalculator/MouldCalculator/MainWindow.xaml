@@ -1,0 +1,59 @@
+﻿<Window x:Class="MouldCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MouldCalculator"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="{DynamicResource ResourceKey=mainWindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Menu Grid.Column="0" IsMainMenu="True">
+                <MenuItem Header="{DynamicResource ResourceKey=menuFile}">
+                    <MenuItem x:Name="menuItemLogout" Header="{DynamicResource ResourceKey=menuFileLogout}" Click="menuItemLogout_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Logout" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{DynamicResource ResourceKey=menuManagment}">
+                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentCreateNewSetMould}"/>
+                    <MenuItem x:Name="miSupplier" Header="{DynamicResource ResourceKey=menuManagmentSupplier}" Click="miSupplier_Click"/>
+                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentOrder}"/>
+                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentComponent}"/>
+                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentOffDay}"/>
+                </MenuItem>
+                <MenuItem Header="{DynamicResource ResourceKey=menuHelp}">
+                    <MenuItem Header="{DynamicResource ResourceKey=menuHelpAboutMe}">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="About"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="{DynamicResource ResourceKey=menuHelpCheckUpdate}">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Update"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+        </Grid>
+    </Grid>
+</Window>

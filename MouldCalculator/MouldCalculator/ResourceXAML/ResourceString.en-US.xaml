@@ -1,0 +1,42 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:WareHouseManagment.ResourceXAML">
+
+    <!--LoginWindow-->
+    <system:String x:Key="loginTitle">Log In</system:String>
+    <system:String x:Key="loginbtnLogin">Log In</system:String>
+    <system:String x:Key="loginbtnExit">Exit</system:String>
+    <system:String x:Key="logintxtUserName">UserName</system:String>
+    <system:String x:Key="logintxtPassword">Password</system:String>
+    
+    <!--MainWindow-->
+    <system:String x:Key="mainWindowTitle">Mould Calculator</system:String>
+    <system:String x:Key="menuFile">File</system:String>
+    <system:String x:Key="menuFileSave">Save</system:String>
+    <system:String x:Key="menuFileLogout">Log out</system:String>
+
+    <system:String x:Key="menuManagment">Managment</system:String>
+    <system:String x:Key="menuManagmentCreateNewSetMould">Create a new Set Mould</system:String>
+    <system:String x:Key="menuManagmentSupplier">Supplier</system:String>
+    <system:String x:Key="menuManagmentOrder">Order</system:String>
+    <system:String x:Key="menuManagmentComponent">Component</system:String>
+    <system:String x:Key="menuManagmentOffDay">Off Day</system:String>
+    
+    <system:String x:Key="menuHelp">Help</system:String>
+    <system:String x:Key="menuHelpAboutMe">About Me</system:String>
+    <system:String x:Key="menuHelpCheckUpdate">Check Update</system:String>
+
+    <!--SupplierWindow-->
+    <system:String x:Key="supplierWindowTitle">Supplier</system:String>
+    <system:String x:Key="supplierWindowGroupSupplierList">Supplier list</system:String>
+    <system:String x:Key="supplierWindowExpanderCreateNewSupplier">Create a new supplier</system:String>
+
+    <system:String x:Key="supplierWindowTxtSupplierID">Supplier ID</system:String>
+    <system:String x:Key="supplierWindowTxtSupplierName">Supplier Name</system:String>
+    <system:String x:Key="supplierWindowTxtSupplierDescription">Description</system:String>
+
+    <system:String x:Key="supplierWindowBtnAdd">Add</system:String>
+    <system:String x:Key="supplierWindowBtnRemove">Remove</system:String>
+
+</ResourceDictionary>

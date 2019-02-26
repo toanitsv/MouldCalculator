@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:WareHouseManagment.ResourceXAML">
+    
+    <!--LoginWindow-->
+    <system:String x:Key="loginTitle">Đăng Nhập</system:String>
+    <system:String x:Key="loginbtnLogin">Đăng Nhập</system:String>
+    <system:String x:Key="loginbtnExit">Thoát</system:String>
+    <system:String x:Key="logintxtUserName">Tên Đăng Nhập</system:String>
+    <system:String x:Key="logintxtPassword">Mật Khẩu</system:String>
+    
+    <!--MainWindow-->
+    <system:String x:Key="mainWindowTitle">Mould Calculator</system:String>
+    
+    <system:String x:Key="menuFile">Tệp Tin</system:String>
+    <system:String x:Key="menuFileSave">Lưu</system:String>
+    <system:String x:Key="menuFileLogout">Đăng xuất</system:String>
+
+    <system:String x:Key="menuManagment">Quản Lý</system:String>
+    <system:String x:Key="menuManagmentCreateNewSetMould">Tạo mới Set Mould</system:String>
+    <system:String x:Key="menuManagmentSupplier">Nhà cung cấp</system:String>
+    <system:String x:Key="menuManagmentOrder">Đơn hàng</system:String>
+    <system:String x:Key="menuManagmentComponent">Mẫu</system:String>
+    <system:String x:Key="menuManagmentOffDay">Ngày nghỉ</system:String>
+
+    <system:String x:Key="menuHelp">Giúp Đỡ</system:String>
+    <system:String x:Key="menuHelpAboutMe">Giới thiệu</system:String>
+    <system:String x:Key="menuHelpCheckUpdate">Kiểm tra cập nhật</system:String>
+    
+    <!--SupplierWindow-->
+    <system:String x:Key="supplierWindowTitle">Nhà Cung Cấp</system:String>
+    <system:String x:Key="supplierWindowGroupSupplierList">Danh sách nhà cung cấp</system:String>
+    <system:String x:Key="supplierWindowExpanderCreateNewSupplier">Thêm nhà cung cấp</system:String>
+
+    <system:String x:Key="supplierWindowTxtSupplierID">Supplier ID</system:String>
+    <system:String x:Key="supplierWindowTxtSupplierName">Tên nhà cung cấp</system:String>
+    <system:String x:Key="supplierWindowTxtSupplierDescription">Mô tả</system:String>
+    
+    <system:String x:Key="supplierWindowBtnAdd">Thêm</system:String>
+    <system:String x:Key="supplierWindowBtnRemove">Xóa</system:String>
+
+</ResourceDictionary>
