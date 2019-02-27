@@ -21,11 +21,12 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
-                <Expander Padding="30,0,0,10"
-                    Header="{DynamicResource ResourceKey=supplierWindowExpanderCreateNewSupplier}">
+                <Expander Padding="30,0,0,10">
+                    <Expander.Header>
+                        <TextBlock Text="{DynamicResource ResourceKey=supplierWindowExpanderCreateNewSupplier}" Foreground="Blue" FontSize="16"/>
+                    </Expander.Header>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
@@ -35,23 +36,28 @@
                             <ColumnDefinition Width="auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
+
                         <TextBox x:Name="txtSupplierID" IsEnabled="False"
-                                 materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierID}"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierID}"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
                         <TextBox x:Name="txtSupplierName" Grid.Row="1"
-                                 Margin="0,10,0,0"
-                                 materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierName}"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                                Margin="0,10,0,0" 
+                                materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierName}"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
                         <TextBox x:Name="txtSupplierDescription" Grid.Row="2"
-                                 Margin="0,10,0,0"
-                                 materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierDescription}"
-                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                        <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,10,0,0">
+                                Margin="0,10,0,0"
+                                materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierDescription}"
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Grid.Row="3">
                             <Button x:Name="btnAdd"
                                     Background="LimeGreen" Foreground="Black"
                                     BorderBrush="Transparent"
                                     MinWidth="100"
-                                    Content="{DynamicResource ResourceKey=supplierWindowBtnAdd}"/>
+                                    Content="{DynamicResource ResourceKey=supplierWindowBtnAdd}" VerticalAlignment="Top"
+                                    Click="btnAdd_Click"/>
                             <Button x:Name="btnRemove" Margin="10,0,0,0" IsEnabled="False"
                                     Background="Red" Foreground="Black"
                                     BorderBrush="Transparent"

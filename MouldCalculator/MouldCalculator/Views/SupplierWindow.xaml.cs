@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MouldCalculator.Models;
+using MouldCalculator.Controllers;
 
 namespace MouldCalculator.Views
 {
@@ -22,6 +24,18 @@ namespace MouldCalculator.Views
         public SupplierWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            var supplierInsert = new Supplier() {
+                SupplierID = 112,
+                SupplierName = "Giang Pocurpine",
+                Description = "giang bi ham",
+                CreatedTime = DateTime.Now,
+                ModifiedTime = DateTime.Now
+            };
+            SupplierController.Add(supplierInsert);
         }
     }
 }

@@ -37,7 +37,7 @@
     <system:String x:Key="supplierWindowTxtSupplierName">Tên nhà cung cấp</system:String>
     <system:String x:Key="supplierWindowTxtSupplierDescription">Mô tả</system:String>
     
-    <system:String x:Key="supplierWindowBtnAdd">Thêm</system:String>
+    <system:String x:Key="supplierWindowBtnAdd">Lưu</system:String>
     <system:String x:Key="supplierWindowBtnRemove">Xóa</system:String>
 
 </ResourceDictionary>

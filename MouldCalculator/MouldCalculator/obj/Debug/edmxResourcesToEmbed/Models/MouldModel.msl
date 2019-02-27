@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MouldModelStoreContainer" CdmEntityContainer="MouldEntities">
+    <EntitySetMapping Name="Components">
+      <EntityTypeMapping TypeName="MouldModel.Component">
+        <MappingFragment StoreEntitySet="Component">
+          <ScalarProperty Name="ComponentID" ColumnName="ComponentID" />
+          <ScalarProperty Name="ComponentName" ColumnName="ComponentName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="MouldModel.Supplier">
+        <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spm_m_DeleteSupplier" FunctionName="MouldModel.Store.spm_m_DeleteSupplier" />
+    <FunctionImportMapping FunctionImportName="spm_m_InsertSupplier" FunctionName="MouldModel.Store.spm_m_InsertSupplier" />
+    <FunctionImportMapping FunctionImportName="spm_SelectSupplier" FunctionName="MouldModel.Store.spm_SelectSupplier">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="MouldModel.spm_SelectSupplier_Result">
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

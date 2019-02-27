@@ -36,7 +36,7 @@
     <system:String x:Key="supplierWindowTxtSupplierName">Supplier Name</system:String>
     <system:String x:Key="supplierWindowTxtSupplierDescription">Description</system:String>
 
-    <system:String x:Key="supplierWindowBtnAdd">Add</system:String>
+    <system:String x:Key="supplierWindowBtnAdd">Save</system:String>
     <system:String x:Key="supplierWindowBtnRemove">Remove</system:String>
 
 </ResourceDictionary>
