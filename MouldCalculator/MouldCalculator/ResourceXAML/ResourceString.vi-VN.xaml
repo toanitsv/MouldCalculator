@@ -40,4 +40,16 @@
     <system:String x:Key="supplierWindowBtnAdd">Lưu</system:String>
     <system:String x:Key="supplierWindowBtnRemove">Xóa</system:String>
 
+    <system:String x:Key="supplierWindowGridColID">ID</system:String>
+    <system:String x:Key="supplierWindowGridColName">Tên nhà cung cấp</system:String>
+    <system:String x:Key="supplierWindowGridColDescription">Mô tả</system:String>
+    <system:String x:Key="supplierWindowGridColCreatedTime">Thời gian</system:String>
+    <system:String x:Key="supplierWindowGridCellEdit">Chỉnh sửa</system:String>
+
+    <system:String x:Key="supplierWindowMessageValidateSupllierName">Nhập tên nhà cung cấp !</system:String>
+    <system:String x:Key="supplierWindowMessageExecuteDbSuccessful">Đã lưu !</system:String>
+    <system:String x:Key="supplierWindowMessageExecuteDbError">Có lỗi DB xảy ra !</system:String>
+
+    <system:String x:Key="supplierWindowMessageConfirmDelete">Bạn có muốn xóa ?</system:String>
+
 </ResourceDictionary>

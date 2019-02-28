@@ -39,4 +39,16 @@
     <system:String x:Key="supplierWindowBtnAdd">Save</system:String>
     <system:String x:Key="supplierWindowBtnRemove">Remove</system:String>
 
+    <system:String x:Key="supplierWindowGridColID">ID</system:String>
+    <system:String x:Key="supplierWindowGridColName">Supplier Name</system:String>
+    <system:String x:Key="supplierWindowGridColDescription">Description</system:String>
+    <system:String x:Key="supplierWindowGridColCreatedTime">Created Time</system:String>
+    <system:String x:Key="supplierWindowGridCellEdit">Edit</system:String>
+
+    <system:String x:Key="supplierWindowMessageValidateSupllierName">Supplier Name cannot empty !</system:String>
+    <system:String x:Key="supplierWindowMessageExecuteDbSuccessful">Successfully !</system:String>
+    <system:String x:Key="supplierWindowMessageExecuteDbError">An error ocurred !</system:String>
+    
+    <system:String x:Key="supplierWindowMessageConfirmDelete">Confirm Delete ?</system:String>
+
 </ResourceDictionary>

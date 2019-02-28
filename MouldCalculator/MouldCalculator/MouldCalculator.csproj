@@ -67,15 +67,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\MouldController.cs" />
     <Compile Include="Helper\ELanguage.cs" />
     <Compile Include="Helper\LanguageHelper.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
     <Compile Include="Helper\TimerHelper.cs" />
-    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Component.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ComponentModel.cs" />
     <Compile Include="Models\MouldModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,14 +90,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MouldModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\SizeRunModel.cs" />
     <Compile Include="Models\spm_SelectSupplier_Result.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Supplier.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SupplierModel.cs" />
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>

@@ -8,73 +8,110 @@
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="15"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="{DynamicResource ResourceKey=supplierWindowTitle}" Height="450" Width="700" WindowStartupLocation="CenterScreen">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid Margin="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
-                <Expander Padding="30,0,0,10">
-                    <Expander.Header>
-                        <TextBlock Text="{DynamicResource ResourceKey=supplierWindowExpanderCreateNewSupplier}" Foreground="Blue" FontSize="16"/>
-                    </Expander.Header>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
+        Title="{DynamicResource ResourceKey=supplierWindowTitle}" 
+        Height="500" Width="800" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <materialDesign:Card Background="{DynamicResource MaterialDesignBackground}">
+            <Expander x:Name="epCreateSupplier" Padding="30,0,0,10">
+                <Expander.Header>
+                    <TextBlock Text="{DynamicResource ResourceKey=supplierWindowExpanderCreateNewSupplier}" Foreground="Blue" FontSize="16"/>
+                </Expander.Header>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
 
-                        <TextBox x:Name="txtSupplierID" IsEnabled="False"
-                                materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierID}"
-                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox x:Name="txtSupplierID" IsEnabled="False"
+                                 Text="{Binding SupplierID}"
+                                 materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierID}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-                        <TextBox x:Name="txtSupplierName" Grid.Row="1"
-                                Margin="0,10,0,0" 
-                                materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierName}"
-                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox x:Name="txtSupplierName" Grid.Row="1"
+                                 Margin="0,10,0,0"
+                                 Text="{Binding SupplierName}"
+                                 materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierName}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-                        <TextBox x:Name="txtSupplierDescription" Grid.Row="2"
-                                Margin="0,10,0,0"
-                                materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierDescription}"
-                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                    <TextBox x:Name="txtSupplierDescription" Grid.Row="2"
+                                 Margin="0,10,0,0"
+                                 Text="{Binding Description}"
+                                 materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=supplierWindowTxtSupplierDescription}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
 
-                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Grid.Row="3">
-                            <Button x:Name="btnAdd"
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0" Grid.Row="3">
+                        <Button x:Name="btnAdd"
                                     Background="LimeGreen" Foreground="Black"
                                     BorderBrush="Transparent"
                                     MinWidth="100"
                                     Content="{DynamicResource ResourceKey=supplierWindowBtnAdd}" VerticalAlignment="Top"
                                     Click="btnAdd_Click"/>
-                            <Button x:Name="btnRemove" Margin="10,0,0,0" IsEnabled="False"
+                        <Button x:Name="btnRemove" Margin="10,0,0,0" IsEnabled="False"
                                     Background="Red" Foreground="Black"
                                     BorderBrush="Transparent"
                                     MinWidth="100"
-                                    Content="{DynamicResource ResourceKey=supplierWindowBtnRemove}"/>
-                        </StackPanel>
-                    </Grid>
-                </Expander>
-            </materialDesign:Card>
-
-            <GroupBox  Grid.Row="1"
-                       Margin="0,20,0,0"
+                                    Content="{DynamicResource ResourceKey=supplierWindowBtnRemove}"
+                                    Click="btnRemove_Click"/>
+                    </StackPanel>
+                </Grid>
+            </Expander>
+        </materialDesign:Card>
+        <GroupBox  Grid.Row="1" Margin="0,20,0,0" 
+                       BorderThickness="1,1,1,1" BorderBrush="Gray"
                        Header="{DynamicResource ResourceKey=supplierWindowGroupSupplierList}"
-                       Style="{DynamicResource MaterialDesignGroupBox}"
-                       BorderThickness="1,1,1,1" BorderBrush="Gray">
-            </GroupBox>
-        </Grid>
-    </ScrollViewer>
-    
+                       Style="{DynamicResource MaterialDesignGroupBox}">
+            <Grid>
+                <DataGrid x:Name="dgSupplier" AutoGenerateColumns="False" FontSize="15"
+                          CanUserAddRows="False" CanUserResizeRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding SupplierID}" Header="{DynamicResource ResourceKey=supplierWindowGridColID}" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding SupplierName}" IsReadOnly="True" Header="{DynamicResource ResourceKey=supplierWindowGridColName}"/>
+                        <DataGridTextColumn Binding="{Binding Description}" IsReadOnly="True" Header="{DynamicResource ResourceKey=supplierWindowGridColDescription}"/>
+                        <DataGridTextColumn Binding="{Binding CreatedTime, StringFormat=MM/dd/yyyy}" IsReadOnly="True" Header="{DynamicResource ResourceKey=supplierWindowGridColCreatedTime}"/>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="btnEditRow" Content="{DynamicResource ResourceKey=supplierWindowGridCellEdit}" Click="btnEditRow_Click">
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <TextBlock TextDecorations="Underline">
+                                                        <ContentPresenter/>
+                                                </TextBlock>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                        <Button.Style>
+                                            <Style TargetType="Button">
+                                                <Setter Property="Foreground" Value="Blue" />
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="true">
+                                                        <Setter Property="Foreground" Value="Red" />
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </GroupBox>
+    </Grid>
 </Window>
