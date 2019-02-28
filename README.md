@@ -1,2 +1,2 @@
-# MouldCalculator
-Application supports calculate the mould when we make order and follow up suppliers delivery mould
+# MoldCalculator
+Application supports calculate the mold when we make order and follow up suppliers delivery mold
