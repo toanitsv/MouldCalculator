@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <ApplicationIcon>Mold.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -70,7 +70,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controllers\MouldController.cs" />
     <Compile Include="Helper\ELanguage.cs" />
     <Compile Include="Helper\LanguageHelper.cs" />
     <Compile Include="Helper\StringHelper.cs" />
@@ -78,6 +77,7 @@
     <Compile Include="Models\Component.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataProvider.cs" />
     <Compile Include="Models\MouldModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,11 +93,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MouldModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\OffDay.cs">
+      <DependentUpon>MouldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>MouldModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\spm_SelectSupplier_Result.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Supplier.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ComponentViewModel.cs" />
+    <Compile Include="Views\ComponentWindow.xaml.cs">
+      <DependentUpon>ComponentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
@@ -117,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ResourceXAML\ResourceString.en-US.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +139,10 @@
     <Page Include="ResourceXAML\ResourceString.vi-VN.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ComponentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -169,7 +188,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Logo.ico" />
     <Content Include="Models\MouldModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MouldModel.Context.cs</LastGenOutput>
@@ -180,6 +198,7 @@
       <DependentUpon>MouldModel.edmx</DependentUpon>
       <LastGenOutput>MouldModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Mold.ico" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

@@ -28,3 +28,7 @@ C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\Moul
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\bin\Debug\EntityFramework.dll
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\bin\Debug\EntityFramework.xml
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\MouldCalculator_Content.g.cs
+C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\Views\ComponentWindow.g.cs
+C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\Views\ComponentWindow.baml
+C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\ResourceXAML\MainResource.baml

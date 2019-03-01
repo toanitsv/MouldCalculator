@@ -4,10 +4,33 @@
     <Key>
       <PropertyRef Name="ComponentID" />
     </Key>
-    <Property Name="ComponentID" Type="int" Nullable="false" />
+    <Property Name="ComponentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ComponentName" Type="nvarchar" MaxLength="50" />
     <Property Name="Description" Type="nvarchar" MaxLength="100" />
     <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OffDay">
+    <Key>
+      <PropertyRef Name="OffDayID" />
+    </Key>
+    <Property Name="OffDayID" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="OutsoleCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="Article" Type="nvarchar" MaxLength="50" />
+    <Property Name="ShoeName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CSD" Type="date" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="IsEnable" Type="bit" />
+    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="ModifiedTime" Type="datetime" />
   </EntityType>
   <EntityType Name="Supplier">
     <Key>
@@ -16,6 +39,7 @@
     <Property Name="SupplierID" Type="int" Nullable="false" />
     <Property Name="SupplierName" Type="nvarchar" MaxLength="100" />
     <Property Name="Description" Type="nvarchar" MaxLength="200" />
+    <Property Name="OffDayID" Type="int" />
     <Property Name="CreatedTime" Type="datetime" />
     <Property Name="ModifiedTime" Type="datetime" />
   </EntityType>
@@ -30,6 +54,8 @@
   <Function Name="spm_SelectSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="MouldModelStoreContainer">
     <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OffDay" EntityType="Self.OffDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

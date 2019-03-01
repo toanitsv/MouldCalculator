@@ -11,11 +11,15 @@ namespace MouldCalculator.Models
 {
     using System;
     using System.Collections.Generic;
+    using MouldCalculator.ViewModels;
     
-    public partial class Component
+    public partial class Component : BaseViewModel
     {
-        public int ComponentID { get; set; }
-        public string ComponentName { get; set; }
+        private int _ComponentID;
+        public int ComponentID { get => _ComponentID; set { _ComponentID = value; OnPropertyChanged(); } }
+
+        private string _ComponentName;
+        public string ComponentName { get => _ComponentName; set { _ComponentName = value; OnPropertyChanged(); } }
         public string Description { get; set; }
         public Nullable<System.DateTime> CreatedTime { get; set; }
     }

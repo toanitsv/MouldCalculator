@@ -34,11 +34,11 @@
                     </MenuItem>
                 </MenuItem>
                 <MenuItem Header="{DynamicResource ResourceKey=menuManagment}">
-                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentCreateNewSetMould}"/>
+                    <MenuItem x:Name="miCreateANewSet" Header="{DynamicResource ResourceKey=menuManagmentCreateNewSetMould}"/>
                     <MenuItem x:Name="miSupplier" Header="{DynamicResource ResourceKey=menuManagmentSupplier}" Click="miSupplier_Click"/>
-                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentOrder}"/>
-                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentComponent}"/>
-                    <MenuItem Header="{DynamicResource ResourceKey=menuManagmentOffDay}"/>
+                    <MenuItem x:Name="miOrder" Header="{DynamicResource ResourceKey=menuManagmentOrder}"/>
+                    <MenuItem x:Name="miComponent" Header="{DynamicResource ResourceKey=menuManagmentComponent}" Click="miComponent_Click"/>
+                    <MenuItem x:Name="miOffDay" Header="{DynamicResource ResourceKey=menuManagmentOffDay}"/>
                 </MenuItem>
                 <MenuItem Header="{DynamicResource ResourceKey=menuHelp}">
                     <MenuItem Header="{DynamicResource ResourceKey=menuHelpAboutMe}">

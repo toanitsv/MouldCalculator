@@ -12,13 +12,16 @@ namespace MouldCalculator.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Supplier
+    public partial class Order
     {
-        public int SupplierID { get; set; }
-        public string SupplierName { get; set; }
-        public string Description { get; set; }
+        public int OrderID { get; set; }
+        public string OutsoleCode { get; set; }
+        public string Article { get; set; }
+        public string ShoeName { get; set; }
+        public Nullable<System.DateTime> CSD { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<bool> IsEnable { get; set; }
         public Nullable<System.DateTime> CreatedTime { get; set; }
         public Nullable<System.DateTime> ModifiedTime { get; set; }
-        public Nullable<int> OffDayID { get; set; }
     }
 }

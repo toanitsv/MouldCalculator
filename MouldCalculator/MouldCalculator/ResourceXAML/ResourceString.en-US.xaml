@@ -45,7 +45,7 @@
     <system:String x:Key="supplierWindowGridColCreatedTime">Created Time</system:String>
     <system:String x:Key="supplierWindowGridCellEdit">Edit</system:String>
 
-    <system:String x:Key="supplierWindowMessageValidateSupllierName">Supplier Name cannot empty !</system:String>
+    <system:String x:Key="supplierWindowMessageValidateSupllierName">Enter SupplierName !</system:String>
     <system:String x:Key="supplierWindowMessageExecuteDbSuccessful">Successfully !</system:String>
     <system:String x:Key="supplierWindowMessageExecuteDbError">An error ocurred !</system:String>
     

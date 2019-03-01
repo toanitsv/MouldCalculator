@@ -1,0 +1,53 @@
+﻿<Window x:Class="MouldCalculator.Views.ComponentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MouldCalculator.Views"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        DataContext="{StaticResource ComponentVM}"
+        mc:Ignorable="d"
+        Title="Component" Height="500" Width="600" FontSize="15"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--các element binding từ selected item-->
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" materialDesign:HintAssist.Hint="Component Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <WrapPanel Grid.Row="1" Margin="0,10,0,0">
+                        <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"/>
+                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"/>
+                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"/>
+                    </WrapPanel>
+                </Grid>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                <ListView   ItemsSource="{Binding ComponentList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ComponentID}"></GridViewColumn>
+                            <GridViewColumn Header="Component Name" DisplayMemberBinding="{Binding ComponentName}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>

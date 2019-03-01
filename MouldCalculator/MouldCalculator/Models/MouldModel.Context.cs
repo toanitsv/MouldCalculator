@@ -30,6 +30,8 @@ namespace MouldCalculator.Models
     
         public DbSet<Component> Components { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<OffDay> OffDays { get; set; }
+        public DbSet<Order> Orders { get; set; }
     
         public virtual int spm_m_DeleteSupplier(Nullable<int> supplierID)
         {

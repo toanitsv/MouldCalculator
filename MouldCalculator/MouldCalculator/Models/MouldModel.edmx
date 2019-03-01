@@ -4,15 +4,38 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MouldModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MouldModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Component">
           <Key>
             <PropertyRef Name="ComponentID" />
           </Key>
-          <Property Name="ComponentID" Type="int" Nullable="false" />
+          <Property Name="ComponentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ComponentName" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="CreatedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OffDay">
+          <Key>
+            <PropertyRef Name="OffDayID" />
+          </Key>
+          <Property Name="OffDayID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="OutsoleCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Article" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShoeName" Type="nvarchar" MaxLength="200" />
+          <Property Name="CSD" Type="date" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="IsEnable" Type="bit" />
+          <Property Name="CreatedTime" Type="datetime" />
+          <Property Name="ModifiedTime" Type="datetime" />
         </EntityType>
         <EntityType Name="Supplier">
           <Key>
@@ -21,6 +44,7 @@
           <Property Name="SupplierID" Type="int" Nullable="false" />
           <Property Name="SupplierName" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="OffDayID" Type="int" />
           <Property Name="CreatedTime" Type="datetime" />
           <Property Name="ModifiedTime" Type="datetime" />
         </EntityType>
@@ -35,10 +59,11 @@
         <Function Name="spm_SelectSupplier" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="MouldModelStoreContainer">
           <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OffDay" EntityType="Self.OffDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MouldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -60,12 +85,13 @@
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CreatedTime" Type="DateTime" Precision="3" />
           <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+          <Property Name="OffDayID" Type="Int32" />
         </EntityType>
         <EntityContainer Name="MouldEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Components" EntityType="Self.Component" />
           <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
           <FunctionImport Name="spm_m_DeleteSupplier">
-            <Parameter Name="SupplierID" Mode="In" Type="Int32" />
+          <Parameter Name="SupplierID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="spm_m_InsertSupplier">
             <Parameter Name="SupplierID" Mode="In" Type="Int32" />
@@ -73,6 +99,8 @@
             <Parameter Name="Description" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="spm_SelectSupplier" ReturnType="Collection(MouldModel.spm_SelectSupplier_Result)" />
+          <EntitySet Name="OffDays" EntityType="MouldModel.OffDay" />
+          <EntitySet Name="Orders" EntityType="MouldModel.Order" />
         </EntityContainer>
         <ComplexType Name="spm_SelectSupplier_Result">
           <Property Type="Int32" Name="SupplierID" Nullable="false" />
@@ -81,6 +109,29 @@
           <Property Type="DateTime" Name="CreatedTime" Nullable="true" Precision="23" />
           <Property Type="DateTime" Name="ModifiedTime" Nullable="true" Precision="23" />
         </ComplexType>
+        <EntityType Name="OffDay">
+          <Key>
+            <PropertyRef Name="OffDayID" />
+          </Key>
+          <Property Name="OffDayID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="OutsoleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Article" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShoeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CSD" Type="DateTime" Precision="0" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="IsEnable" Type="Boolean" />
+          <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -100,6 +151,7 @@
           <EntitySetMapping Name="Suppliers">
             <EntityTypeMapping TypeName="MouldModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
                 <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -121,6 +173,31 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="OffDays">
+            <EntityTypeMapping TypeName="MouldModel.OffDay">
+              <MappingFragment StoreEntitySet="OffDay">
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="MouldModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+                <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+                <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="CSD" ColumnName="CSD" />
+                <ScalarProperty Name="ShoeName" ColumnName="ShoeName" />
+                <ScalarProperty Name="Article" ColumnName="Article" />
+                <ScalarProperty Name="OutsoleCode" ColumnName="OutsoleCode" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -7,6 +7,8 @@
       <Diagram DiagramId="f9367b7cefec483fa2682c50225f1215" Name="Diagram1">
         <EntityTypeShape EntityType="MouldModel.Component" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="MouldModel.Supplier" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MouldModel.OffDay" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="MouldModel.Order" Width="1.5" PointX="5" PointY="1.625" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -36,5 +36,11 @@ namespace MouldCalculator
             SupplierWindow window = new SupplierWindow();
             window.Show();
         }
+
+        private void miComponent_Click(object sender, RoutedEventArgs e)
+        {
+            ComponentWindow window = new ComponentWindow();
+            window.Show();
+        }
     }
 }

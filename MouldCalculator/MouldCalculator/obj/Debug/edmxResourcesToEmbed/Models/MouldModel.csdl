@@ -18,6 +18,7 @@
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CreatedTime" Type="DateTime" Precision="3" />
     <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+    <Property Name="OffDayID" Type="Int32" />
   </EntityType>
   <EntityContainer Name="MouldEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Components" EntityType="Self.Component" />
@@ -31,6 +32,8 @@
       <Parameter Name="Description" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="spm_SelectSupplier" ReturnType="Collection(MouldModel.spm_SelectSupplier_Result)" />
+    <EntitySet Name="OffDays" EntityType="MouldModel.OffDay" />
+    <EntitySet Name="Orders" EntityType="MouldModel.Order" />
   </EntityContainer>
   <ComplexType Name="spm_SelectSupplier_Result">
     <Property Type="Int32" Name="SupplierID" Nullable="false" />
@@ -39,4 +42,27 @@
     <Property Type="DateTime" Name="CreatedTime" Nullable="true" Precision="23" />
     <Property Type="DateTime" Name="ModifiedTime" Nullable="true" Precision="23" />
   </ComplexType>
+  <EntityType Name="OffDay">
+    <Key>
+      <PropertyRef Name="OffDayID" />
+    </Key>
+    <Property Name="OffDayID" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="OutsoleCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Article" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ShoeName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CSD" Type="DateTime" Precision="0" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="IsEnable" Type="Boolean" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+  </EntityType>
 </Schema>

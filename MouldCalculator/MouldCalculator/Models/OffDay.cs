@@ -12,13 +12,11 @@ namespace MouldCalculator.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Supplier
+    public partial class OffDay
     {
-        public int SupplierID { get; set; }
-        public string SupplierName { get; set; }
+        public int OffDayID { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string Description { get; set; }
         public Nullable<System.DateTime> CreatedTime { get; set; }
-        public Nullable<System.DateTime> ModifiedTime { get; set; }
-        public Nullable<int> OffDayID { get; set; }
     }
 }

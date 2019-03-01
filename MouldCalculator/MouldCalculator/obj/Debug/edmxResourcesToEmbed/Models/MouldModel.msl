@@ -14,6 +14,7 @@
     <EntitySetMapping Name="Suppliers">
       <EntityTypeMapping TypeName="MouldModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
+          <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
           <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
           <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -35,5 +36,30 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="OffDays">
+      <EntityTypeMapping TypeName="MouldModel.OffDay">
+        <MappingFragment StoreEntitySet="OffDay">
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="MouldModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="ModifiedTime" ColumnName="ModifiedTime" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="IsEnable" ColumnName="IsEnable" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CSD" ColumnName="CSD" />
+          <ScalarProperty Name="ShoeName" ColumnName="ShoeName" />
+          <ScalarProperty Name="Article" ColumnName="Article" />
+          <ScalarProperty Name="OutsoleCode" ColumnName="OutsoleCode" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

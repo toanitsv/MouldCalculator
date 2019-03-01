@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
 using MouldCalculator.Models;
-using MouldCalculator.Controllers;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Data;
@@ -45,10 +44,10 @@ namespace MouldCalculator.Views
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             if (bwLoad.IsBusy == false)
-            {
-                this.Cursor = Cursors.Wait;
-                bwLoad.RunWorkerAsync();
-            }
+                {
+                    this.Cursor = Cursors.Wait;
+                    bwLoad.RunWorkerAsync();
+                }
         }
         private void bwLoad_DoWork(object sender, DoWorkEventArgs e)
         {
