@@ -13,8 +13,9 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="{DynamicResource ResourceKey=mainWindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid Margin="5">
+        Title="{DynamicResource ResourceKey=mainWindowTitle}" Height="450" Width="800" WindowStartupLocation="CenterScreen"
+        DataContext="{DynamicResource MainVM}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -38,7 +39,7 @@
                     <MenuItem x:Name="miSupplier" Header="{DynamicResource ResourceKey=menuManagmentSupplier}" Click="miSupplier_Click"/>
                     <MenuItem x:Name="miOrder" Header="{DynamicResource ResourceKey=menuManagmentOrder}"/>
                     <MenuItem x:Name="miComponent" Header="{DynamicResource ResourceKey=menuManagmentComponent}" Click="miComponent_Click"/>
-                    <MenuItem x:Name="miOffDay" Header="{DynamicResource ResourceKey=menuManagmentOffDay}"/>
+                    <MenuItem x:Name="miOffDay" Header="{DynamicResource ResourceKey=menuManagmentOffDay}" Click="miOffDay_Click"/>
                 </MenuItem>
                 <MenuItem Header="{DynamicResource ResourceKey=menuHelp}">
                     <MenuItem Header="{DynamicResource ResourceKey=menuHelpAboutMe}">

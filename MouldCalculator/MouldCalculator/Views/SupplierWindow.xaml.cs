@@ -64,10 +64,13 @@ namespace MouldCalculator.Views
 
             var supplierList = e.Result as ObservableCollection<Supplier>;
             txtSupplierID.Text = "1611";
-            txtSupplierName.Clear();
+
             txtSupplierDescription.Clear();
+            txtSupplierName.Clear();
+            dgSupplier.ItemsSource = null;
             if (supplierList.Count() > 0)
             {
+                txtSupplierID.Clear();
                 txtSupplierID.Text = (supplierList.OrderBy(o => o.SupplierID).LastOrDefault().SupplierID + 1).ToString();
                 dgSupplier.ItemsSource = supplierList;
             }
@@ -151,11 +154,11 @@ namespace MouldCalculator.Views
         {
             if (e.Error != null)
             {
-                MessageBox.Show(StringHelper.GetFromResource("supplierWindowMessageExecuteDbError"), StringHelper.GetFromResource("supplierWindowTitle"), MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(StringHelper.GetFromResource("msgBoxExecuteDbError"), StringHelper.GetFromResource("supplierWindowTitle"), MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            MessageBox.Show(StringHelper.GetFromResource("supplierWindowMessageExecuteDbSuccessful"), StringHelper.GetFromResource("supplierWindowTitle"), MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(StringHelper.GetFromResource("msgBoxExecuteDbSuccessful"), StringHelper.GetFromResource("supplierWindowTitle"), MessageBoxButton.OK, MessageBoxImage.Information);
             this.Cursor = null;
             btnAdd.IsEnabled = true;
             btnRemove.IsEnabled = false;
@@ -186,7 +189,7 @@ namespace MouldCalculator.Views
                 SupplierID = Int32.Parse(txtSupplierID.Text)
             };
 
-            if (MessageBox.Show(StringHelper.GetFromResource("supplierWindowMessageConfirmDelete"), StringHelper.GetFromResource("supplierWindowTitle"), MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            if (MessageBox.Show(StringHelper.GetFromResource("msgBoxConfirmDelete"), StringHelper.GetFromResource("supplierWindowTitle"), MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
             {
                 return;
             }

@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MouldCalculator.Views"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-        DataContext="{StaticResource ComponentVM}"
+        DataContext="{DynamicResource ComponentVM}"
         mc:Ignorable="d"
-        Title="Component" Height="500" Width="600" FontSize="15"
+        Title="Component" Height="450" Width="650" FontSize="15"
         WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -22,31 +22,52 @@
             </Grid.RowDefinitions>
 
             <!--các element binding từ selected item-->
-            <materialDesign:Card Grid.Row="0" Margin="5">
+            <materialDesign:Card Grid.Row="0" Padding="5">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" materialDesign:HintAssist.Hint="Component Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox Text="{Binding DisplayName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Margin="5" materialDesign:HintAssist.Hint="{DynamicResource ResourceKey=componentTxtEnterComponentName}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                     <WrapPanel Grid.Row="1" Margin="0,10,0,0">
-                        <Button Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"/>
-                        <Button Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100"/>
-                        <Button Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"/>
+                        <Button Command="{Binding AddCommand}" Background="LimeGreen" Foreground="Black" BorderBrush="Transparent">
+                            <Button.Content>
+                                <WrapPanel>
+                                    <materialDesign:PackIcon Kind="Add" Height="24" Width="24" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{DynamicResource ResourceKey=btnAdd}" VerticalAlignment="Center"/>
+                                </WrapPanel>
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding EditCommand}" Background="DeepSkyBlue" Foreground="Black" BorderBrush="Transparent" Margin="10,0,0,0">
+                            <Button.Content>
+                                <WrapPanel>
+                                    <materialDesign:PackIcon Kind="Edit" Height="24" Width="24" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{DynamicResource ResourceKey=btnRevise}" VerticalAlignment="Center"/>
+                                </WrapPanel>
+                            </Button.Content>
+                        </Button>
+                        <Button Command="{Binding DeleteCommand}" Background="Red" Foreground="Black" BorderBrush="Transparent" Margin="10,0,0,0">
+                            <Button.Content>
+                                <WrapPanel>
+                                    <materialDesign:PackIcon Kind="Delete" Height="24" Width="24" Margin="0,0,5,0"/>
+                                    <TextBlock Text="{DynamicResource ResourceKey=btnRemove}" VerticalAlignment="Center"/>
+                                </WrapPanel>
+                            </Button.Content>
+                        </Button>
                     </WrapPanel>
                 </Grid>
             </materialDesign:Card>
 
-            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
-                <ListView   ItemsSource="{Binding ComponentList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ComponentID}"></GridViewColumn>
-                            <GridViewColumn Header="Component Name" DisplayMemberBinding="{Binding ComponentName}"></GridViewColumn>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+            <materialDesign:Card Grid.Row="2" VerticalAlignment="Stretch" Margin="0,10,0,0" Padding="5">
+                <DataGrid ItemsSource="{Binding ComponentList, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+                          AutoGenerateColumns="False" FontSize="15"
+                          CanUserAddRows="False" CanUserResizeRows="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding ComponentID}" Header="{DynamicResource ResourceKey=componentLsvColID}" IsReadOnly="True"/>
+                        <DataGridTextColumn Binding="{Binding ComponentName}" Header="{DynamicResource ResourceKey=componentLsvColComponentName}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </materialDesign:Card>
         </Grid>
     </Grid>

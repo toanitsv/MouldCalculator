@@ -36,9 +36,6 @@
     <system:String x:Key="supplierWindowTxtSupplierName">Supplier Name</system:String>
     <system:String x:Key="supplierWindowTxtSupplierDescription">Description</system:String>
 
-    <system:String x:Key="supplierWindowBtnAdd">Save</system:String>
-    <system:String x:Key="supplierWindowBtnRemove">Remove</system:String>
-
     <system:String x:Key="supplierWindowGridColID">ID</system:String>
     <system:String x:Key="supplierWindowGridColName">Supplier Name</system:String>
     <system:String x:Key="supplierWindowGridColDescription">Description</system:String>
@@ -46,9 +43,23 @@
     <system:String x:Key="supplierWindowGridCellEdit">Edit</system:String>
 
     <system:String x:Key="supplierWindowMessageValidateSupllierName">Enter SupplierName !</system:String>
-    <system:String x:Key="supplierWindowMessageExecuteDbSuccessful">Successfully !</system:String>
-    <system:String x:Key="supplierWindowMessageExecuteDbError">An error ocurred !</system:String>
-    
-    <system:String x:Key="supplierWindowMessageConfirmDelete">Confirm Delete ?</system:String>
+
+    <!--ComponentWindow-->
+    <system:String x:Key="componentWindowTitle">Component</system:String>
+
+    <system:String x:Key="componentTxtEnterComponentName">Enter Component Name</system:String>
+
+    <system:String x:Key="componentLsvColComponentName">Component Name</system:String>
+    <system:String x:Key="componentLsvColID">ID</system:String>
+
+    <!--MessageBox-->
+    <system:String x:Key="msgBoxExecuteDbSuccessful">Successfully !</system:String>
+    <system:String x:Key="msgBoxExecuteDbError">An error ocurred  !</system:String>
+    <system:String x:Key="msgBoxConfirmDelete">Confirm Remove ?</system:String>
+    <!--Button-->
+    <system:String x:Key="btnAdd">Add</system:String>
+    <system:String x:Key="btnSave">Save</system:String>
+    <system:String x:Key="btnRevise">Revise</system:String>
+    <system:String x:Key="btnRemove">Remove</system:String>
 
 </ResourceDictionary>

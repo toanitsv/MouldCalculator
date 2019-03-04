@@ -14,7 +14,6 @@
     <EntitySetMapping Name="Suppliers">
       <EntityTypeMapping TypeName="MouldModel.Supplier">
         <MappingFragment StoreEntitySet="Supplier">
-          <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
           <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
           <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -58,6 +57,15 @@
           <ScalarProperty Name="Article" ColumnName="Article" />
           <ScalarProperty Name="OutsoleCode" ColumnName="OutsoleCode" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OffDay_Supplier_Mapping">
+      <EntityTypeMapping TypeName="MouldModel.OffDay_Supplier_Mapping">
+        <MappingFragment StoreEntitySet="OffDay_Supplier_Mapping">
+          <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
+          <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

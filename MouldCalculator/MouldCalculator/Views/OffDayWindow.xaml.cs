@@ -11,20 +11,19 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MouldCalculator.Helper;
 using MouldCalculator.ViewModels;
 
 namespace MouldCalculator.Views
 {
     /// <summary>
-    /// Interaction logic for ComponentWindow.xaml
+    /// Interaction logic for OffDayWindow.xaml
     /// </summary>
-    public partial class ComponentWindow : Window
+    public partial class OffDayWindow : Window
     {
-        private ComponentViewModel componentViewModel = new ComponentViewModel();
-        public ComponentWindow()
+        private OffDayViewModel offDayViewModel = new OffDayViewModel();
+        public OffDayWindow()
         {
-            this.DataContext = componentViewModel;
+            this.DataContext = offDayViewModel;
             InitializeComponent();
         }
     }

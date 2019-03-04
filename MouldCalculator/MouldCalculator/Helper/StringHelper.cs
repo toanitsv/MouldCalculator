@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace MouldCalculator.Helper
 {
@@ -6,7 +7,14 @@ namespace MouldCalculator.Helper
     {
         public static string GetFromResource(string resourceName)
         {
-            return (string)Application.Current.FindResource(resourceName);
+            try
+            {
+                return (string)Application.Current.FindResource(resourceName);
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
         }
     }
 }

@@ -18,7 +18,6 @@
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="CreatedTime" Type="DateTime" Precision="3" />
     <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
-    <Property Name="OffDayID" Type="Int32" />
   </EntityType>
   <EntityContainer Name="MouldEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Components" EntityType="Self.Component" />
@@ -34,6 +33,7 @@
     <FunctionImport Name="spm_SelectSupplier" ReturnType="Collection(MouldModel.spm_SelectSupplier_Result)" />
     <EntitySet Name="OffDays" EntityType="MouldModel.OffDay" />
     <EntitySet Name="Orders" EntityType="MouldModel.Order" />
+    <EntitySet Name="OffDay_Supplier_Mapping" EntityType="MouldModel.OffDay_Supplier_Mapping" />
   </EntityContainer>
   <ComplexType Name="spm_SelectSupplier_Result">
     <Property Type="Int32" Name="SupplierID" Nullable="false" />
@@ -64,5 +64,13 @@
     <Property Name="IsEnable" Type="Boolean" />
     <Property Name="CreatedTime" Type="DateTime" Precision="3" />
     <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="OffDay_Supplier_Mapping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierID" Type="Int32" />
+    <Property Name="OffDayID" Type="Int32" />
   </EntityType>
 </Schema>

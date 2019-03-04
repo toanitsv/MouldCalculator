@@ -2,5 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewmodel="clr-namespace:MouldCalculator.ViewModels"
                     xmlns:local="clr-namespace:MouldCalculator.ResourceXAML">
-    <viewmodel:ComponentViewModel x:Key="ComponentVM"></viewmodel:ComponentViewModel>
+    <viewmodel:MainViewModel x:Key="MainVM"/>
+    <viewmodel:ComponentViewModel x:Key="ComponentVM"/>
+    <viewmodel:OffDayViewModel x:Key="OffDayVM"/>
 </ResourceDictionary>

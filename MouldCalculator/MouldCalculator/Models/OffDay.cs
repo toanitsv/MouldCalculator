@@ -11,12 +11,17 @@ namespace MouldCalculator.Models
 {
     using System;
     using System.Collections.Generic;
+    using MouldCalculator.ViewModels;
     
-    public partial class OffDay
+    public partial class OffDay : BaseViewModel
     {
         public int OffDayID { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        public string Description { get; set; }
+        private Nullable<DateTime> _Date;
+        public Nullable<DateTime> Date { get => _Date; set { _Date = value; OnPropertyChanged(); } }
+
+        private string _Description;
+
+        public string Description { get => _Description; set { _Description = value; OnPropertyChanged(); } }
         public Nullable<System.DateTime> CreatedTime { get; set; }
     }
 }

@@ -12,7 +12,8 @@ namespace MouldCalculator.Models
     using System;
     using System.Collections.Generic;
     using MouldCalculator.ViewModels;
-    
+
+
     public partial class Component : BaseViewModel
     {
         private int _ComponentID;

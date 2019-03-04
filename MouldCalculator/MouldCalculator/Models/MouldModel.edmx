@@ -18,10 +18,18 @@
           <Key>
             <PropertyRef Name="OffDayID" />
           </Key>
-          <Property Name="OffDayID" Type="int" Nullable="false" />
+          <Property Name="OffDayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" />
           <Property Name="Description" Type="nvarchar" MaxLength="100" />
           <Property Name="CreatedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="OffDay_Supplier_Mapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="OffDayID" Type="int" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -44,7 +52,6 @@
           <Property Name="SupplierID" Type="int" Nullable="false" />
           <Property Name="SupplierName" Type="nvarchar" MaxLength="100" />
           <Property Name="Description" Type="nvarchar" MaxLength="200" />
-          <Property Name="OffDayID" Type="int" />
           <Property Name="CreatedTime" Type="datetime" />
           <Property Name="ModifiedTime" Type="datetime" />
         </EntityType>
@@ -60,6 +67,7 @@
         <EntityContainer Name="MouldModelStoreContainer">
           <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OffDay" EntityType="Self.OffDay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OffDay_Supplier_Mapping" EntityType="Self.OffDay_Supplier_Mapping" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -85,7 +93,6 @@
           <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="CreatedTime" Type="DateTime" Precision="3" />
           <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
-          <Property Name="OffDayID" Type="Int32" />
         </EntityType>
         <EntityContainer Name="MouldEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Components" EntityType="Self.Component" />
@@ -101,6 +108,7 @@
           <FunctionImport Name="spm_SelectSupplier" ReturnType="Collection(MouldModel.spm_SelectSupplier_Result)" />
           <EntitySet Name="OffDays" EntityType="MouldModel.OffDay" />
           <EntitySet Name="Orders" EntityType="MouldModel.Order" />
+          <EntitySet Name="OffDay_Supplier_Mapping" EntityType="MouldModel.OffDay_Supplier_Mapping" />
         </EntityContainer>
         <ComplexType Name="spm_SelectSupplier_Result">
           <Property Type="Int32" Name="SupplierID" Nullable="false" />
@@ -132,6 +140,14 @@
           <Property Name="CreatedTime" Type="DateTime" Precision="3" />
           <Property Name="ModifiedTime" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="OffDay_Supplier_Mapping">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="OffDayID" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -151,7 +167,6 @@
           <EntitySetMapping Name="Suppliers">
             <EntityTypeMapping TypeName="MouldModel.Supplier">
               <MappingFragment StoreEntitySet="Supplier">
-                <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
                 <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -195,6 +210,15 @@
                 <ScalarProperty Name="Article" ColumnName="Article" />
                 <ScalarProperty Name="OutsoleCode" ColumnName="OutsoleCode" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OffDay_Supplier_Mapping">
+            <EntityTypeMapping TypeName="MouldModel.OffDay_Supplier_Mapping">
+              <MappingFragment StoreEntitySet="OffDay_Supplier_Mapping">
+                <ScalarProperty Name="OffDayID" ColumnName="OffDayID" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -13,10 +13,18 @@
     <Key>
       <PropertyRef Name="OffDayID" />
     </Key>
-    <Property Name="OffDayID" Type="int" Nullable="false" />
+    <Property Name="OffDayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="date" />
     <Property Name="Description" Type="nvarchar" MaxLength="100" />
     <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OffDay_Supplier_Mapping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" />
+    <Property Name="OffDayID" Type="int" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -39,7 +47,6 @@
     <Property Name="SupplierID" Type="int" Nullable="false" />
     <Property Name="SupplierName" Type="nvarchar" MaxLength="100" />
     <Property Name="Description" Type="nvarchar" MaxLength="200" />
-    <Property Name="OffDayID" Type="int" />
     <Property Name="CreatedTime" Type="datetime" />
     <Property Name="ModifiedTime" Type="datetime" />
   </EntityType>
@@ -55,6 +62,7 @@
   <EntityContainer Name="MouldModelStoreContainer">
     <EntitySet Name="Component" EntityType="Self.Component" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OffDay" EntityType="Self.OffDay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OffDay_Supplier_Mapping" EntityType="Self.OffDay_Supplier_Mapping" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

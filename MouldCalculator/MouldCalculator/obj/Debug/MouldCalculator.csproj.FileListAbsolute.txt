@@ -32,3 +32,5 @@ C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\Moul
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\Views\ComponentWindow.baml
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\ResourceXAML\MainResource.baml
+C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\Views\OffDayWindow.g.cs
+C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\obj\Debug\Views\OffDayWindow.baml

@@ -96,6 +96,9 @@
     <Compile Include="Models\OffDay.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OffDay_Supplier_Mapping.cs">
+      <DependentUpon>MouldModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Order.cs">
       <DependentUpon>MouldModel.tt</DependentUpon>
     </Compile>
@@ -107,11 +110,16 @@
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ComponentViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\OffDayViewModel.cs" />
     <Compile Include="Views\ComponentWindow.xaml.cs">
       <DependentUpon>ComponentWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OffDayWindow.xaml.cs">
+      <DependentUpon>OffDayWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SupplierWindow.xaml.cs">
       <DependentUpon>SupplierWindow.xaml</DependentUpon>
@@ -145,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OffDayWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -18,10 +18,10 @@
     <system:String x:Key="menuFileLogout">Đăng xuất</system:String>
 
     <system:String x:Key="menuManagment">Quản Lý</system:String>
-    <system:String x:Key="menuManagmentCreateNewSetMould">Tạo mới Set Mould</system:String>
+    <system:String x:Key="menuManagmentCreateNewSetMould">Tạo mới Set Mold</system:String>
     <system:String x:Key="menuManagmentSupplier">Nhà cung cấp</system:String>
     <system:String x:Key="menuManagmentOrder">Đơn hàng</system:String>
-    <system:String x:Key="menuManagmentComponent">Mẫu</system:String>
+    <system:String x:Key="menuManagmentComponent">Component</system:String>
     <system:String x:Key="menuManagmentOffDay">Ngày nghỉ</system:String>
 
     <system:String x:Key="menuHelp">Giúp Đỡ</system:String>
@@ -37,9 +37,6 @@
     <system:String x:Key="supplierWindowTxtSupplierName">Tên nhà cung cấp</system:String>
     <system:String x:Key="supplierWindowTxtSupplierDescription">Mô tả</system:String>
     
-    <system:String x:Key="supplierWindowBtnAdd">Lưu</system:String>
-    <system:String x:Key="supplierWindowBtnRemove">Xóa</system:String>
-
     <system:String x:Key="supplierWindowGridColID">ID</system:String>
     <system:String x:Key="supplierWindowGridColName">Tên nhà cung cấp</system:String>
     <system:String x:Key="supplierWindowGridColDescription">Mô tả</system:String>
@@ -47,9 +44,24 @@
     <system:String x:Key="supplierWindowGridCellEdit">Chỉnh sửa</system:String>
 
     <system:String x:Key="supplierWindowMessageValidateSupllierName">Nhập tên nhà cung cấp !</system:String>
-    <system:String x:Key="supplierWindowMessageExecuteDbSuccessful">Đã lưu !</system:String>
-    <system:String x:Key="supplierWindowMessageExecuteDbError">Có lỗi DB xảy ra !</system:String>
+    
 
-    <system:String x:Key="supplierWindowMessageConfirmDelete">Bạn có muốn xóa ?</system:String>
+    
+    
+    <!--ComponentWindow-->
+    <system:String x:Key="componentWindowTitle">Component</system:String>
+    <system:String x:Key="componentTxtEnterComponentName">Tên Component</system:String>
+    <system:String x:Key="componentLsvColComponentName">Tên Component</system:String>
+    <system:String x:Key="componentLsvColID">ID</system:String>
+    
+    <!--MessageBox-->
+    <system:String x:Key="msgBoxExecuteDbSuccessful">Đã lưu !</system:String>
+    <system:String x:Key="msgBoxExecuteDbError">Có lỗi DB xảy ra !</system:String>
+    <system:String x:Key="msgBoxConfirmDelete">Bạn có muốn xóa ?</system:String>
+    <!--Button-->
+    <system:String x:Key="btnAdd">Thêm</system:String>
+    <system:String x:Key="btnSave">Lưu</system:String>
+    <system:String x:Key="btnRevise">Sửa</system:String>
+    <system:String x:Key="btnRemove">Xóa</system:String>
 
 </ResourceDictionary>

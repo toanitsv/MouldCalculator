@@ -42,5 +42,11 @@ namespace MouldCalculator
             ComponentWindow window = new ComponentWindow();
             window.Show();
         }
+
+        private void miOffDay_Click(object sender, RoutedEventArgs e)
+        {
+            OffDayWindow window = new OffDayWindow();
+            window.Show();
+        }
     }
 }
