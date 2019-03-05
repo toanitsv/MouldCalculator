@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\PhucNguyen\Desktop\MouldCalculator\MouldCalculator\MouldCalculator\MouldCalculator\App.xaml
-8-593994141
+9-2128380160
 2-921651453
-27949294171
+28432786463
 20-1375918150
-MainWindow.xaml;ResourceXAML\MainResource.xaml;ResourceXAML\ResourceString.en-US.xaml;ResourceXAML\ResourceString.vi-VN.xaml;Views\ComponentWindow.xaml;Views\LoginWindow.xaml;Views\OffDayWindow.xaml;Views\SupplierWindow.xaml;
+MainWindow.xaml;ResourceXAML\MainResource.xaml;ResourceXAML\ResourceString.en-US.xaml;ResourceXAML\ResourceString.vi-VN.xaml;Views\ComponentWindow.xaml;Views\LoginWindow.xaml;Views\OffDayWindow.xaml;Views\OrderWindow.xaml;Views\SupplierWindow.xaml;
 
 False
 

@@ -15,17 +15,6 @@ namespace MouldCalculator.ViewModels
 {
     public class OffDayViewModel : BaseViewModel
     {
-        private List<OffDay_Supplier_Mapping> _OffDayList_Supplier_Day;
-        public List<OffDay_Supplier_Mapping> OffDayList_Supplier_Day
-        {
-            get => _OffDayList_Supplier_Day;
-            set
-            {
-                _OffDayList_Supplier_Day = value;
-                OnPropertyChanged();
-            }
-        }
-
         private ObservableCollection<OffDay> _OffDayList;
         public ObservableCollection<OffDay> OffDayList
         {
@@ -38,13 +27,13 @@ namespace MouldCalculator.ViewModels
             }
         }
 
-        private ObservableCollection<Component> _ComponentList;
-        public ObservableCollection<Component> ComponentList
+        private ObservableCollection<Supplier> _Supplier;
+        public ObservableCollection<Supplier> SupplierList
         {
-            get => _ComponentList;
+            get => _Supplier;
             set
             {
-                _ComponentList = value;
+                _Supplier = value;
                 OnPropertyChanged();
             }
         }
@@ -86,39 +75,25 @@ namespace MouldCalculator.ViewModels
             }
         }
 
-
-        private int _SupplierID;
-        public int SupplierID
-        {
-            get => _SupplierID;
-            set
-            {
-                _SupplierID = value;
-                OnPropertyChanged();
-            }
-        }
-
         public ICommand AddCommand { get; set; }
         public ICommand EditCommand { get; set; }
         public ICommand DeleteCommand { get; set; }
-
-        public ICommand RemoveSupplierCommand { get; set; }
+        
 
         public OffDayViewModel()
         {
             DisplayDate = DateTime.Now;
             // Read
             OffDayList      = new ObservableCollection<OffDay>(DataProvider.Ins.DB.OffDays);
-            ComponentList = new ObservableCollection<Component>(DataProvider.Ins.DB.Components);
+            SupplierList = new ObservableCollection<Supplier>(DataProvider.Ins.DB.Suppliers);
 
-            // Add
             AddCommand = new RelayCommand<object>((p) =>
             {
                 if (string.IsNullOrEmpty(DisplayDate.ToString()))
                     return false;
 
-                var dayValidation = OffDayList.Where(w => w.Date.Value.Date == DisplayDate.Value.Date);
-                if (dayValidation == null || dayValidation.Count() != 0)
+                var dayValidation = OffDayList.SingleOrDefault(s => s.Date.Value.Date == DisplayDate.Value.Date);
+                if (dayValidation == null)
                     return false;
 
                 return true;
@@ -126,41 +101,30 @@ namespace MouldCalculator.ViewModels
             }, (p) =>
             {
                 // Add off day to OffDayList
-                var offDayAdd = new OffDay() {  Date = DisplayDate, Description = Description, CreatedTime = DateTime.Now };
+                var offDayAdd = new OffDay() { Date = DisplayDate, Description = Description, CreatedTime = DateTime.Now };
                 DataProvider.Ins.DB.OffDays.Add(offDayAdd);
                 DataProvider.Ins.DB.SaveChanges();
                 OffDayList.Add(offDayAdd);
+
+                // Map offday and supplier
+                foreach (var supplier in SupplierList)
+                {
+                    var offDayMap = new OffDay_Supplier_Mapping() { OffDayID = offDayAdd.OffDayID, SupplierID = supplier.SupplierID };
+                    DataProvider.Ins.DB.OffDay_Supplier_Mapping.Add(offDayMap);
+                    DataProvider.Ins.DB.SaveChanges();
+                }
             });
 
             // Edit
             EditCommand = new RelayCommand<object>((p) =>
             {
-                return true;
-            }, (p) =>
-            {
-                
-            });
-
-            // Load Suppliers has DisplayDate is OffDay.
-            var offDay = OffDayList.SingleOrDefault(s => s.Date.Value.Date == DisplayDate.Value.Date);
-            if (offDay != null)
-            {
-                OffDayList_Supplier_Day = new List<OffDay_Supplier_Mapping>(DataProvider.Ins.DB.OffDay_Supplier_Mapping).Where(w => w.OffDayID == offDay.OffDayID).ToList();
-
-                // Show Items
-                foreach (var offDayMapping in OffDayList_Supplier_Day)
-                {
-                    
-                }
-            }
-
-            // Test
-            RemoveSupplierCommand = new RelayCommand<object>((p) =>
-            {
+                if (SelectedItem == null)
+                    return false;
                 return true;
             }, (p) =>
             {
             });
+
         }
     }
 }

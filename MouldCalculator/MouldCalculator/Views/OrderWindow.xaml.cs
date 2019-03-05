@@ -11,20 +11,16 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MouldCalculator.Helper;
-using MouldCalculator.ViewModels;
 
 namespace MouldCalculator.Views
 {
     /// <summary>
-    /// Interaction logic for ComponentWindow.xaml
+    /// Interaction logic for OrderWindow.xaml
     /// </summary>
-    public partial class ComponentWindow : Window
+    public partial class OrderWindow : Window
     {
-        //private ComponentViewModel componentViewModel = new ComponentViewModel();
-        public ComponentWindow()
+        public OrderWindow()
         {
-            this.DataContext = new ComponentViewModel();
             InitializeComponent();
         }
     }

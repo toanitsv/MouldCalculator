@@ -20,11 +20,32 @@ namespace MouldCalculator.Views
     /// </summary>
     public partial class OffDayWindow : Window
     {
-        private OffDayViewModel offDayViewModel = new OffDayViewModel();
+        public OffDayViewModel offDayViewModel = new OffDayViewModel();
         public OffDayWindow()
         {
-            this.DataContext = offDayViewModel;
+            this.DataContext = offDayViewModel;            
             InitializeComponent();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ReloadComponentList();
+        }
+        private void btnRemoveSupplier_Click(object sender, RoutedEventArgs e)
+        {
+            var buttonClicked = sender as Button;
+            var supplierID = (int)buttonClicked.Tag;
+            var supplierRemove = offDayViewModel.SupplierList.SingleOrDefault(s => s.SupplierID == supplierID);
+            offDayViewModel.SupplierList.Remove(supplierRemove);
+            ReloadComponentList();
+        }
+        private void ReloadComponentList()
+        {
+            icComponent.ItemsSource = null;
+            icComponent.ItemsSource = offDayViewModel.SupplierList;
+            ((OffDayViewModel)this.DataContext).SupplierList = offDayViewModel.SupplierList;
+        }
+
+        
     }
 }
